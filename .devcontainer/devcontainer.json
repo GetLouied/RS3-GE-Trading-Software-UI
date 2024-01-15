@@ -1,0 +1,47 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
+// https://github.com/microsoft/vscode-dev-containers/tree/v0.224.3/containers/python-3
+{
+	"name": "React",
+	"build": {
+		"dockerfile": "Dockerfile",
+		"context": "..",
+		"args": {}
+	},
+	"mounts": [
+		// :"source=${localEnv:HOME}/.ssh,target=/home/vscode/.ssh,type=bind,consistency=cached"
+	],
+	// Use 'postCreateCommand' to run commands after the container is created.
+	//"postCreateCommand": "pip3 install --user -r requirements.txt",
+	// Set *default* container specific settings.json values on container create.
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"files.encoding": "utf8",
+				"files.eol": "\n",
+				"editor.defaultFormatter": "esbenp.prettier-vscode",
+				"[javascript]": {
+				  "editor.defaultFormatter": "esbenp.prettier-vscode"
+				},
+					"eslint.validate": [
+						"javascript",
+						"javascriptreact",
+						"typescript",
+						"typescriptreact"
+					]
+			},
+			// Add the IDs of extensions you want installed when the container is created.
+			"extensions": [
+				"esbenp.prettier-vscode",
+				"dbaeumer.vscode-eslint"
+			]
+		}
+	},
+	"features": {
+		"git": "os-provided",
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
+		"ghcr.io/devcontainers/features/docker-outside-of-docker:1":{}
+
+	},
+	"remoteUser": "node",
+	"containerUser": "node"
+}
